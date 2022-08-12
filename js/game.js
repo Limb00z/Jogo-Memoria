@@ -1,4 +1,6 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector(".player"); //variavel global que vamos manipular 
+const timer = document.querySelector(".timer"); // varivale global que vamos manipular tbm 
 
 const characters = [
   'beth',
@@ -26,7 +28,8 @@ const checkEndGame = () => {
   const disabledCards = document.querySelectorAll('.disabled-card');
 
   if (disabledCards.length === 20) {
-    alert('Parabéns, você conseguiu!');
+    clearInterval(this.loop); // Se o jogo chegar o fim, encerrar o loop do contador de tempo
+    alert(`Parabéns ${spanPlayer.innerHTML}!   Você consegui em: ${timer.innerHTML}segundos`);
   }
 }
 
@@ -107,4 +110,16 @@ const loadGame = () => {
   });
 }
 
-loadGame();
+const startTimer = () => {
+  this.loop = setInterval(()=>{
+    const currentTime = +timer.innerHTML; //esse mais, é pra converter o numero de string pra inteiro
+    timer.innerHTML = currentTime + 1;
+  },1000)
+}
+
+window.onload = () =>{ 
+  spanPlayer.innerHTML = localStorage.getItem("player"); //recolhendo o nome salvo no inicio do jogo e adicionando.
+  startTimer();
+  loadGame();
+}
+

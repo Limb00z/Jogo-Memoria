@@ -1,10 +1,36 @@
+main{
+  align-items: center;
+  background-image: url(../imagens/bg.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px 20px 50px;
+  width: 100%;
+}
+
+header{
+  align-items: center;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.8);
+  display: flex;
+  font-size: 1.2em;
+  justify-content: space-between;
+  margin: 0 0 30px;
+  max-width: 800px;
+  padding: 30px;
+  width: 100%;
+}
+
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
     width: 100%;
     max-width: 800px;
-    margin: 100px auto;
+    margin: 0px auto;
   }
   
   .card {
@@ -14,6 +40,7 @@
     position: relative;
     transition: all 400ms ease;
     transform-style: preserve-3d;
+    background-color: #ccc;
   }
   
   .face {
